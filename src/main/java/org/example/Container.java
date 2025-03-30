@@ -39,7 +39,7 @@ class Container{
      * Если массив заполнен - увеличивает его размер
      * @param element элемент
      */
-    void add(int element){
+    public void add(int element){
         A[size] = element;
         ++size;
         if (size==capacity)
@@ -48,7 +48,7 @@ class Container{
     /**
      Метод resize создает новый массив с удвоенной вместимостью
      */
-    void resize(){
+    private void resize(){
         this.capacity = 2 * this.capacity;
         int[] A = new int[this.capacity];
         System.arraycopy(this.A, 0, A, 0, size);
@@ -61,7 +61,7 @@ class Container{
      * @throws IndexOutOfBoundsException если указанный индекс за пределами контейнера
      * @return элемент контейнера с указанным индексом
      */
-    int get_element(int ind){
+    public int get_element(int ind){
         if (ind >= size)
             throw new IndexOutOfBoundsException("Out of array's bounds");
 
@@ -72,20 +72,20 @@ class Container{
      *Метод get_capacity возвращает размер массива
      * @return размер массива
      */
-    int get_capacity() {return this.capacity;}
+    public int get_capacity() {return this.capacity;}
 
     /**
      *Метод get_size возвращает число элементов в контейнере
      * @return количество элементов в контейнере
      */
-    int get_size() {return this.size;}
+    public int get_size() {return this.size;}
 
     /**
      *Метод delete удаляет элемент контейнера по указанному индексу
      * @param ind индекс удаляемого элемента
      * @throws IndexOutOfBoundsException если введенный индекс за пределами контейнера
      */
-    void delete(int ind){
+    public void delete(int ind){
         if (ind < 0 || ind >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         for(int i=ind;i<size-1;i++)
